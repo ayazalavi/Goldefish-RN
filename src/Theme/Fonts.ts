@@ -11,13 +11,19 @@ import { ThemeVariables, ThemeFonts } from '@/Theme/theme.type'
  */
 export default function ({ FontSize, Colors }: ThemeVariables): ThemeFonts {
   return StyleSheet.create({
-    textSmall: {
-      fontSize: FontSize.small,
-      color: Colors.text,
+    textLargeYellowButton: {
+      fontSize: FontSize.button_large,
+      color: Colors.white,
+      letterSpacing: 0.13,
+      textTransform: 'uppercase',
+      opacity: 1,
     },
-    textRegular: {
-      fontSize: FontSize.regular,
-      color: Colors.text,
+    textLargeWhiteButton: {
+      fontSize: FontSize.button_large,
+      color: Colors.text_yellow,
+      letterSpacing: 0.13,
+      textTransform: 'uppercase',
+      opacity: 1,
     },
     textLarge: {
       fontSize: FontSize.large,

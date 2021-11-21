@@ -17,26 +17,37 @@ import {
  */
 export const Colors: ThemeColors = {
   // Example colors:
+  goldefish_blue: '#2A78F4',
+  goldefish_background: '#4085F4',
+  goldefish_yellow: '#F6C527',
+  goldefish_purple: '#415396',
+  goldefish_light_blue: '#A2CDF8',
+  goldefish_light_yellow: '#F6C527',
+  goldefish_light_purple: '#B9C6F8',
+  goldefish_green: '#A3DAAE',
+  goldefish_red: '#E05375',
+  goldefish_gray: '#ADB4D1',
+  text_darkgray: '#363C45',
+  text_midgray: '#5C646F',
+  text_yellow: '#F7C628',
   transparent: 'rgba(0,0,0,0)',
-  inputBackground: '#FFFFFF',
-  white: '#ffffff',
-  text: '#212529',
-  primary: '#E14032',
-  success: '#28a745',
-  error: '#dc3545',
+  white: '#FFFFFF',
 }
 
 export const NavigationColors: Partial<ThemeNavigationColors> = {
-  primary: Colors.primary,
+  primary: Colors.goldefish_background,
+  background: Colors.goldefish_blue,
 }
 
 /**
  * FontSize
  */
 export const FontSize: ThemeFontSize = {
-  small: 16,
-  regular: 20,
-  large: 40,
+  h1: 24,
+  h2: 22,
+  h3: 18,
+  h4: 16,
+  button_large: 20,
 }
 
 /**

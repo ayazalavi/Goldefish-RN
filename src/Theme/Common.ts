@@ -16,7 +16,7 @@ export default function ({ Colors, ...args }: ThemeCommonParams) {
     button: buttonStyles({ Colors, ...args }),
     ...StyleSheet.create({
       backgroundPrimary: {
-        backgroundColor: Colors.primary,
+        backgroundColor: Colors.goldefish_background,
       },
       backgroundReset: {
         backgroundColor: Colors.transparent,

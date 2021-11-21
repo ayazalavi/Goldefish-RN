@@ -6,27 +6,34 @@ export default function ({ Colors, Gutters, Layout }: ThemeCommonParams) {
     ...Layout.center,
     ...Gutters.largeHPadding,
     height: 40,
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.transparent,
+    textAlign: 'center',
   }
   const rounded = {
     ...base,
-    borderRadius: 20,
+    borderRadius: 36,
+    fontFamily: 'Montserrat-Medium',
+    fontSize: 24,
+  }
+
+  const roundedLarge = {
+    ...rounded,
+    height: 71,
   }
 
   return StyleSheet.create({
     base,
     rounded,
-    outline: {
-      ...base,
-      backgroundColor: Colors.transparent,
-      borderWidth: 2,
-      borderColor: Colors.primary,
+    largeYellow: {
+      ...roundedLarge,
+      backgroundColor: Colors.goldefish_yellow,
     },
-    outlineRounded: {
-      ...rounded,
-      backgroundColor: Colors.transparent,
-      borderWidth: 2,
-      borderColor: Colors.primary,
+    outlineRoundedWhite: {
+      ...roundedLarge,
+      backgroundColor: Colors.white,
+      color: Colors.text_yellow,
+      borderWidth: 1,
+      borderColor: Colors.goldefish_yellow,
     },
   })
 }

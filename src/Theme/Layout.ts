@@ -20,6 +20,11 @@ export default function ({}: ThemeVariables): ThemeLayout {
       alignItems: 'center',
       justifyContent: 'center',
     },
+    colTop: {
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+    },
     colVCenter: {
       flexDirection: 'column',
       alignItems: 'center',
@@ -105,6 +110,9 @@ export default function ({}: ThemeVariables): ThemeLayout {
     },
     rotate90Inverse: {
       transform: [{ rotate: '-90deg' }],
+    },
+    border: {
+      borderWidth: 1,
     },
   })
 }
