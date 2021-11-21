@@ -6,6 +6,8 @@
 import { StyleSheet } from 'react-native'
 import buttonStyles from './components/Buttons'
 import { ThemeCommonParams } from '@/Theme/theme.type'
+import { Fonts } from '.'
+import { FontSize } from './Variables'
 /**
  *
  * @param Theme can be spread like {Colors, NavigationColors, Gutters, Layout, Common, ...args}
@@ -18,18 +20,38 @@ export default function ({ Colors, ...args }: ThemeCommonParams) {
       backgroundPrimary: {
         backgroundColor: Colors.goldefish_background,
       },
-      backgroundReset: {
-        backgroundColor: Colors.transparent,
+      backgroundwhite: {
+        backgroundColor: Colors.white,
+      },
+      backgroundTop: {
+        position: 'absolute',
+        top: -150,
+      },
+      backgroundTopSmall: {
+        position: 'absolute',
+        top: -285,
       },
       textInput: {
+        height: 47,
+        backgroundColor: Colors.white,
+        borderRadius: 9,
         borderWidth: 1,
-        borderColor: Colors.text,
-        backgroundColor: Colors.inputBackground,
-        color: Colors.text,
-        minHeight: 50,
-        textAlign: 'center',
-        marginTop: 10,
-        marginBottom: 10,
+        borderColor: Colors.goldefish_gray,
+        width: '100%',
+        fontSize: FontSize.text_input,
+        letterSpacing: 0.1,
+        color: Colors.text_midgray,
+        paddingHorizontal: 30,
+      },
+      textInputBlur: {
+        height: 47,
+        backgroundColor: Colors.text_input_bg,
+        borderRadius: 9,
+        width: '100%',
+        fontSize: FontSize.text_input,
+        letterSpacing: 0.1,
+        color: Colors.text_midgray,
+        paddingHorizontal: 30,
       },
     }),
   }

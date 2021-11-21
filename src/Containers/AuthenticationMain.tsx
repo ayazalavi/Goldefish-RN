@@ -3,18 +3,26 @@ import { View, Text } from 'react-native'
 import { useTranslation } from 'react-i18next'
 import { useTheme } from '@/Hooks'
 import { Brand } from '@/Components'
-import { setDefaultTheme } from '@/Store/Theme'
-import { navigateAndSimpleReset } from '@/Navigators/utils'
+import { setDefaultTheme, setSafeAreaBackgroundColor } from '@/Store/Theme'
+import { navigate } from '@/Navigators/utils'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import { useDispatch } from 'react-redux'
+import { useFocusEffect } from '@react-navigation/native'
 
 const AuthenticationMain = () => {
-  const { Layout, Common, Fonts, Gutters } = useTheme()
-  const { t } = useTranslation()
+  const { Layout, Common, Fonts, Gutters, NavigationTheme } = useTheme()
+  const { colors } = NavigationTheme
+  const dispatch = useDispatch()
 
-  const init = async () => {}
-
-  useEffect(() => {
-    init()
+  useFocusEffect(() => {
+    dispatch(
+      setSafeAreaBackgroundColor({
+        theme: null,
+        darkMode: null,
+        safeareaColor: { top: colors.primary, bottom: colors.primary },
+      }),
+    )
+    return () => {}
   })
 
   return (
@@ -30,14 +38,18 @@ const AuthenticationMain = () => {
       >
         <TouchableOpacity
           style={[Common.button.largeYellow, Gutters.regularBMargin]}
-          onPress={() => {}}
+          onPress={() => {
+            navigate('AuthenticationSignup', {})
+          }}
         >
           <Text style={Fonts.textLargeYellowButton}>sign up</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={[Common.button.outlineRoundedWhite]}
-          onPress={() => {}}
+          onPress={() => {
+            navigate('AuthenticationLogin', {})
+          }}
         >
           <Text style={Fonts.textLargeWhiteButton}>I have an account</Text>
         </TouchableOpacity>

@@ -12,6 +12,11 @@ import {
 type RootStackParamList = {
   Startup: undefined
   Authentication: undefined
+  AuthenticationMain: undefined
+  AuthenticationSignup: undefined
+  AuthenticationLogin: undefined
+  AuthenticationForgot: undefined
+  AuthenticationForgotThankYou: undefined
 }
 
 export const navigationRef = createNavigationContainerRef<RootStackParamList>()

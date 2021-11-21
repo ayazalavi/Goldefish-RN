@@ -25,6 +25,11 @@ export default function ({}: ThemeVariables): ThemeLayout {
       alignItems: 'center',
       justifyContent: 'flex-start',
     },
+    colBottom: {
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'flex-end',
+    },
     colVCenter: {
       flexDirection: 'column',
       alignItems: 'center',
@@ -87,9 +92,15 @@ export default function ({}: ThemeVariables): ThemeLayout {
     selfStretch: {
       alignSelf: 'stretch',
     },
+    selfLeft: {
+      alignSelf: 'flex-start',
+    },
     /* Sizes Layouts */
     fill: {
       flex: 1,
+    },
+    flex0: {
+      flex: 0,
     },
     fullSize: {
       height: '100%',

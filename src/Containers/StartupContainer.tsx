@@ -16,7 +16,11 @@ const StartupContainer = () => {
         resolve(true)
       }, 2000),
     )
-    await setDefaultTheme({ theme: 'default', darkMode: null })
+    await setDefaultTheme({
+      theme: 'default',
+      darkMode: null,
+      safeareaColor: null,
+    })
     navigateAndSimpleReset('Authentication')
   }
 

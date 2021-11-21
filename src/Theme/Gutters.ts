@@ -62,6 +62,9 @@ export default function ({ MetricsSizes }: ThemeVariables): ThemeGutters {
         [`${key}HPadding`]: {
           paddingHorizontal: value,
         },
+        [`${key}percent`]: {
+          height: value,
+        },
       }),
       {},
     ),

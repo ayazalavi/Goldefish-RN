@@ -14,6 +14,7 @@ export type ThemeNavigationColors = {
   text: string
   border: string
   notification: string
+  transparent: string
 }
 export type ThemeFontSize = { [key: string]: number }
 export type ThemeMetricsSizes = { [key: string]: number | string }

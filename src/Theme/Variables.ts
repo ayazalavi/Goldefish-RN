@@ -32,11 +32,13 @@ export const Colors: ThemeColors = {
   text_yellow: '#F7C628',
   transparent: 'rgba(0,0,0,0)',
   white: '#FFFFFF',
+  text_input_bg: '#EBEDF4',
 }
 
 export const NavigationColors: Partial<ThemeNavigationColors> = {
   primary: Colors.goldefish_background,
   background: Colors.goldefish_blue,
+  transparent: Colors.transparent,
 }
 
 /**
@@ -48,20 +50,34 @@ export const FontSize: ThemeFontSize = {
   h3: 18,
   h4: 16,
   button_large: 20,
+  medium: 15,
+  text_input: 16,
+  text_large: 25,
+  text_small: 13,
 }
 
 /**
  * Metrics Sizes
  */
-const tiny = 5 // 10
+const tiny = 6 // 10
 const small = tiny * 2 // 10
 const regular = tiny * 3 // 15
-const large = regular * 2 // 30
+const large = regular * 2
+const xlarge = large * 2
+const largeN = -1 * regular * 2
+const height60 = '60%'
+const height80 = '80%'
+const height50 = '50%' // 30
 export const MetricsSizes: ThemeMetricsSizes = {
   tiny,
   small,
   regular,
   large,
+  xlarge,
+  largeN,
+  height60,
+  height80,
+  height50,
 }
 
 export default {

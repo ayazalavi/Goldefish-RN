@@ -25,24 +25,58 @@ export default function ({ FontSize, Colors }: ThemeVariables): ThemeFonts {
       textTransform: 'uppercase',
       opacity: 1,
     },
-    textLarge: {
-      fontSize: FontSize.large,
-      color: Colors.text,
+    textLargeWhite: {
+      fontSize: FontSize.button_large,
+      color: Colors.white,
+      letterSpacing: 0.13,
+      textTransform: 'capitalize',
+      opacity: 1,
+    },
+    textLargeGray: {
+      fontSize: FontSize.h1,
+      color: Colors.text_midgray,
+      letterSpacing: 0.13,
+      textTransform: 'capitalize',
+      opacity: 1,
     },
     titleSmall: {
-      fontSize: FontSize.small * 2,
+      fontSize: FontSize.medium,
+      fontWeight: 'normal',
+      color: Colors.white,
+    },
+    titleSmallGray: {
+      fontSize: FontSize.medium,
+      fontWeight: 'normal',
+      color: Colors.text_midgray,
+    },
+    titleYellow: {
+      fontSize: FontSize.text_large,
       fontWeight: 'bold',
-      color: Colors.text,
+      color: Colors.text_yellow,
+    },
+    forgotLogin: {
+      fontSize: FontSize.text_small,
+      fontWeight: 'normal',
+      color: Colors.text_midgray,
+      borderBottomColor: Colors.text_midgray,
+      borderBottomWidth: 1,
     },
     titleRegular: {
       fontSize: FontSize.regular * 2,
       fontWeight: 'bold',
       color: Colors.text,
     },
-    titleLarge: {
-      fontSize: FontSize.large * 2,
+    titleLargeWhite: {
+      fontSize: FontSize.h1,
       fontWeight: 'bold',
-      color: Colors.text,
+      color: Colors.white,
+      textTransform: 'capitalize',
+    },
+    titleLargeGray: {
+      fontSize: FontSize.h1,
+      fontWeight: 'bold',
+      color: Colors.text_midgray,
+      textTransform: 'capitalize',
     },
     textCenter: {
       textAlign: 'center',
