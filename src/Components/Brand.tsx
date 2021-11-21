@@ -8,20 +8,18 @@ interface Props {
   mode?: 'contain' | 'cover' | 'stretch' | 'repeat' | 'center'
 }
 
-const Brand = ({ height, width, mode }: Props) => {
+const Brand = ({ mode }: Props) => {
   const { Layout, Images } = useTheme()
 
   return (
-    <View style={{ height, width }}>
-      <Image style={Layout.fullSize} source={Images.logo} resizeMode={mode} />
+    <View>
+      <Image source={Images.splashLogo} resizeMode={mode} />
     </View>
   )
 }
 
 Brand.defaultProps = {
-  height: 200,
-  mode: 'contain',
-  width: 200,
+  mode: 'center',
 }
 
 export default Brand
