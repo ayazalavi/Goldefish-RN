@@ -7,8 +7,7 @@ import { setDefaultTheme } from '@/Store/Theme'
 import { navigateAndSimpleReset } from '@/Navigators/utils'
 
 const StartupContainer = () => {
-  const { Layout, Gutters, Fonts } = useTheme()
-
+  const { Layout, Common } = useTheme()
   const { t } = useTranslation()
 
   const init = async () => {
@@ -18,7 +17,7 @@ const StartupContainer = () => {
       }, 2000),
     )
     await setDefaultTheme({ theme: 'default', darkMode: null })
-    navigateAndSimpleReset('Main')
+    navigateAndSimpleReset('Authentication')
   }
 
   useEffect(() => {
@@ -26,10 +25,8 @@ const StartupContainer = () => {
   })
 
   return (
-    <View style={[Layout.fill, Layout.colCenter]}>
+    <View style={[Layout.fill, Layout.colTop, Common.backgroundPrimary]}>
       <Brand />
-      <ActivityIndicator size={'large'} style={[Gutters.largeVMargin]} />
-      <Text style={Fonts.textCenter}>{t('welcome')}</Text>
     </View>
   )
 }
