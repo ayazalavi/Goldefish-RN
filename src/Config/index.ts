@@ -1,3 +1,3 @@
 export const Config = {
-  API_URL: 'https://jsonplaceholder.typicode.com/',
+  API_URL: 'http://165.227.211.255/goldefish/api',
 }
