@@ -28,6 +28,10 @@ export default function ({ Colors, Gutters, Layout }: ThemeCommonParams) {
       ...roundedLarge,
       backgroundColor: Colors.goldefish_yellow,
     },
+    largeLightYellow: {
+      ...roundedLarge,
+      backgroundColor: Colors.goldefish_light_yellow,
+    },
     outlineRoundedWhite: {
       ...roundedLarge,
       backgroundColor: Colors.white,

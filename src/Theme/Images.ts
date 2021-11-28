@@ -16,5 +16,6 @@ export default function ({}: ThemeVariables): ThemeImages {
     facebook: require('@/Assets/Images/facebook_login.png'),
     apple: require('@/Assets/Images/apple_login.png'),
     backgroundGray: require('@/Assets/Images/background_gray.png'),
+    inputTickIcon: require('@/Assets/Images/check.png'),
   }
 }

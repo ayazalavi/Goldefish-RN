@@ -95,6 +95,9 @@ export default function ({}: ThemeVariables): ThemeLayout {
     selfLeft: {
       alignSelf: 'flex-start',
     },
+    selfRight: {
+      alignSelf: 'flex-end',
+    },
     /* Sizes Layouts */
     fill: {
       flex: 1,
@@ -105,6 +108,10 @@ export default function ({}: ThemeVariables): ThemeLayout {
     fullSize: {
       height: '100%',
       width: '100%',
+    },
+    halfSize: {
+      height: '50%',
+      width: '50%',
     },
     fullWidth: {
       width: '100%',
@@ -124,6 +131,15 @@ export default function ({}: ThemeVariables): ThemeLayout {
     },
     border: {
       borderWidth: 1,
+    },
+    fade: {
+      opacity: 0.4,
+    },
+    absolute: {
+      position: 'absolute',
+    },
+    inFront: {
+      zIndex: 999,
     },
   })
 }

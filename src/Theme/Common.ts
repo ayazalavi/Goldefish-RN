@@ -23,6 +23,9 @@ export default function ({ Colors, ...args }: ThemeCommonParams) {
       backgroundwhite: {
         backgroundColor: Colors.white,
       },
+      backgroundFadeWhite: {
+        backgroundColor: Colors.white_fade,
+      },
       backgroundTop: {
         position: 'absolute',
         top: -150,
@@ -43,6 +46,18 @@ export default function ({ Colors, ...args }: ThemeCommonParams) {
         color: Colors.text_midgray,
         paddingHorizontal: 30,
       },
+      textInputError: {
+        height: 47,
+        backgroundColor: Colors.goldefish_red_opacity,
+        borderRadius: 9,
+        borderWidth: 1,
+        borderColor: Colors.goldefish_red,
+        width: '100%',
+        fontSize: FontSize.text_input,
+        letterSpacing: 0.1,
+        color: Colors.text_midgray,
+        paddingHorizontal: 30,
+      },
       textInputBlur: {
         height: 47,
         backgroundColor: Colors.text_input_bg,
@@ -52,6 +67,11 @@ export default function ({ Colors, ...args }: ThemeCommonParams) {
         letterSpacing: 0.1,
         color: Colors.text_midgray,
         paddingHorizontal: 30,
+      },
+      tickIcon: {
+        position: 'absolute',
+        right: 15,
+        top: 15,
       },
     }),
   }

@@ -44,6 +44,11 @@ export default function ({ FontSize, Colors }: ThemeVariables): ThemeFonts {
       fontWeight: 'normal',
       color: Colors.white,
     },
+    formerror: {
+      fontSize: FontSize.medium,
+      fontWeight: 'normal',
+      color: Colors.goldefish_red,
+    },
     titleSmallGray: {
       fontSize: FontSize.medium,
       fontWeight: 'normal',
