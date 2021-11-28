@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { View, Text, Button } from 'react-native'
 import { useTranslation } from 'react-i18next'
 import { useTheme } from '@/Hooks'
@@ -15,12 +15,65 @@ import Signup from '@/Components/Forms/Signup'
 import { navigate } from '@/Navigators/utils'
 import TextButton from '@/Components/TextButton'
 import SocialButtons from '@/Components/SocialButtons'
+import {
+  ValidatorContextOptions,
+  ValidatorProvider,
+} from 'react-class-validator'
+import { ValidationError } from 'class-validator'
+import { useSignupMutation } from '@/Services/modules/auth'
+import { SignupRequest } from '@/Services/modules/auth/signup'
+import ActivityOverlay from '@/Components/ActivityOverlay'
 
 export default () => {
   const { Layout, Common, Fonts, Gutters, NavigationTheme, Colors } = useTheme()
   const { colors } = NavigationTheme
   const dispatch = useDispatch()
   const nav = useNavigation()
+
+  const [signup, { data, isSuccess, isLoading, isError, error, status }] =
+    useSignupMutation()
+  const [params, setParams] = useState<SignupRequest>()
+  const [enableSignup, setEnableSignup] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
+  const onAccept = (
+    email: string,
+    password: string,
+    phone: string,
+    username: string,
+  ) => {
+    console.log('accept')
+    const params: SignupRequest = { email, password, phone, username }
+    setParams(params)
+    setEnableSignup(true)
+    setErrorMessage('')
+  }
+
+  const onReject = () => {
+    console.log('reject')
+    setEnableSignup(false)
+  }
+
+  const signUpHandler = () => {
+    console.log('signin')
+    enableSignup && params && !isLoading && signup(params)
+  }
+
+  useEffect(() => {
+    console.log(data, isSuccess, isLoading, error, status)
+    status === 'rejected' && setErrorMessage(error?.data?.message)
+    status === 'fulfilled' && isSuccess && navigate('AuthenticationLogin', {})
+  }, [signup, data, error, status, isError, isSuccess, isLoading])
+
+  const validatorOptions: ValidatorContextOptions = {
+    onErrorMessage: (error: ValidationError): string[] => {
+      // custom error message handling (localization, etc)
+      console.log(error)
+      const errors = Object.values(error.constraints || { '': 'Unknown Error' })
+      setErrorMessage(errors[0])
+      return errors
+    },
+    resultType: 'boolean', // default, can also be set to 'map'
+  }
   useFocusEffect(() => {
     dispatch(
       setSafeAreaBackgroundColor({
@@ -54,6 +107,7 @@ export default () => {
       ]}
     >
       <Background style={[Common.backgroundTop]} />
+      {isLoading && <ActivityOverlay />}
       <AuthHeader
         text={'sign up'}
         subtitle={<Privacy />}
@@ -61,10 +115,34 @@ export default () => {
         parentStyle={{ ...Layout.selfLeft, ...Gutters.largeTMargin }}
       />
       <View style={[Layout.fill, Layout.selfStretch, { top: 100 }]}>
-        <Signup onChange={() => {}} parentStyle={{}} />
+        <ValidatorProvider options={validatorOptions}>
+          <Signup
+            onAccept={onAccept}
+            onReject={onReject}
+            parentStyle={errorMessage === '' ? Gutters.largeBMargin : {}}
+          />
+        </ValidatorProvider>
+        {errorMessage !== '' && (
+          <Text
+            style={[
+              Fonts.formerror,
+              Fonts.fill,
+              Fonts.textLeft,
+              Gutters.largeBMargin,
+            ]}
+          >
+            {errorMessage}
+          </Text>
+        )}
         <TouchableOpacity
-          style={[Common.button.largeYellow, Gutters.regularBMargin]}
-          onPress={() => {}}
+          style={[
+            !enableSignup
+              ? Common.button.largeLightYellow
+              : Common.button.largeYellow,
+            ,
+            Gutters.regularBMargin,
+          ]}
+          onPress={signUpHandler}
         >
           <Text style={Fonts.textLargeYellowButton}>get started</Text>
         </TouchableOpacity>
